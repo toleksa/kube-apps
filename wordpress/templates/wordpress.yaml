@@ -1,0 +1,46 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wordpress
+  namespace: argocd
+spec:
+  destination:
+    namespace: wordpress
+    server: 'https://kubernetes.default.svc'
+  project: wordpress
+  source:
+    repoURL: 'https://charts.bitnami.com/bitnami'
+    targetRevision: '13.0.4'
+    chart: wordpress
+    helm:
+      values: |
+        wordpressBlogName: "wordpress.{{ .Values.domain }}"
+        wordpressUsername: admin
+        wordpressPassword: "{{ .Values.adminPassword }}"
+        ingress:
+          enabled: true
+          hostname: "wordpress.{{ .Values.domain }}"
+        service:
+          type: ClusterIP
+        persistence:
+          enabled: true
+          storageClass: longhorn
+          accessMode: ["ReadWriteOnce"]
+          size: 1Gi
+        metrics:
+          enabled: true
+        mariadb:
+          primary:
+            persistence:
+              enabled: true
+              storageClass: longhorn
+              accessMode: ["ReadWriteOnce"]
+              size: 1Gi
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - PruneLast=false
+

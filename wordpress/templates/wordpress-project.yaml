@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: wordpress
+  namespace: argocd
+spec:
+  destinations:
+  - namespace: wordpress
+    server: '*'
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  sourceRepos:
+  - 'https://github.com/toleksa/kube-apps'
+  - 'https://charts.bitnami.com/bitnami'
