@@ -10,7 +10,7 @@ spec:
   project: wordpress
   source:
     repoURL: 'https://charts.bitnami.com/bitnami'
-    targetRevision: '13.0.4'
+    targetRevision: '14.0.4'
     chart: wordpress
     helm:
       values: |
