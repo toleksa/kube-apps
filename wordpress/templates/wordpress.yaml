@@ -19,7 +19,7 @@ spec:
         wordpressPassword: "{{ .Values.adminPassword }}"
         ingress:
           enabled: true
-          hostname: "wordpress.{{ .Values.domain }}"
+          hostname: "{{ .Values.website }}.{{ .Values.domain }}"
         service:
           type: ClusterIP
         persistence:
