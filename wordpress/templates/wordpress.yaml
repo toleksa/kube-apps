@@ -14,7 +14,7 @@ spec:
     chart: wordpress
     helm:
       values: |
-        wordpressBlogName: "wordpress.{{ .Values.domain }}"
+        wordpressBlogName: "{{ .Values.website }}.{{ .Values.domain }}"
         wordpressUsername: admin
         wordpressPassword: "{{ .Values.adminPassword }}"
         ingress:
