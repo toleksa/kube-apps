@@ -11,5 +11,5 @@ spec:
   - group: '*'
     kind: '*'
   sourceRepos:
-  - 'https://github.com/toleksa/kube-apps'
+  - 'https://github.com/toleksa/kaboom-games'
   - 'https://charts.bitnami.com/bitnami'
