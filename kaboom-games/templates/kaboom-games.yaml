@@ -11,6 +11,7 @@ spec:
   source:
     repoURL: 'https://github.com/toleksa/kaboom-games'
     targetRevision: 'HEAD'
+    path: 'helm'
     helm:
       values: |
         ingress:
