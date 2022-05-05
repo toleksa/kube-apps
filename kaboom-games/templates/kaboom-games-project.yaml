@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: kaboom-games
+  namespace: argocd
+spec:
+  destinations:
+  - namespace: kaboom-games
+    server: '*'
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  sourceRepos:
+  - 'https://github.com/toleksa/kube-apps'
+  - 'https://charts.bitnami.com/bitnami'
