@@ -12,4 +12,3 @@ spec:
     kind: '*'
   sourceRepos:
   - 'https://github.com/toleksa/kaboom-games'
-  - 'https://charts.bitnami.com/bitnami'
